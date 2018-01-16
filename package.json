@@ -1,0 +1,28 @@
+{
+  "name": "magix-transform",
+  "version": "0.0.1",
+  "description": "A simple transform tool for magix, from old vertion to new version.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib --plugins=transform-runtime --presets=es2015,stage-2",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "Leo Wang",
+    "email": "leowang721@gmail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/leowang721/magix-transform",
+  "repository": "git://github.com/leowang721/magix-transform",
+  "keywords": [
+    "ast",
+    "magix",
+    "transform"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1"
+  }
+}
