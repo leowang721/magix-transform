@@ -17,9 +17,10 @@ export default class WelcomeDialog extends View {
   events = {
     click: {
       doTask(e) {
-        e.view.vm.get('currentTask').execute().then(() => {
-          e.view.vm.dispatch(e.view.vm.ACTION.NEXT_TASK);
-        });
+        e.view.vm.get('currentTask').execute()
+          .then(() => {
+            e.view.vm.dispatch(e.view.vm.ACTION.NEXT_TASK);
+          });
       },
       switchStory(e) {
         e.view.vm.switchStory(e.params.id);
@@ -31,7 +32,7 @@ export default class WelcomeDialog extends View {
 
   bindEvents() {
     const tab = this.getComponent('tab');
-    tab && tab.on('toggle.tab', e => {
+    tab && tab.on('toggle.tab', (e) => {
       this.vm.switchTask(e.tab);
     });
   }
