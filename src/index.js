@@ -1,5 +1,12 @@
 /**
- * @file A simple transform tool for magix, from old vertion to new version.
+ * @file to support dispatched command
  *
  * @author Leo Wang(leowang721@gmail.com)
  */
+
+const workflow = require('./workflow/format');
+
+workflow.process({
+  src: '/Users/leowang/work/magix-transform/test',
+  pattern: '*.+(js|es)'
+});
