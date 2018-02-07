@@ -12,7 +12,7 @@ export default class datamap extends View {
     me.manage(MM.fetchOne({
       name: me.cache.model,
       postParams: me.cache.params
-    }, (m) => {
+    }, m => {
       let map = m.get('list');
       const list = [];
       map = map[0] || {};

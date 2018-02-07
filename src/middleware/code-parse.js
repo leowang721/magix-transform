@@ -13,7 +13,18 @@ injectAcornEs7(acorn);
 injectAcornStaticClassPropertyInitializer(acorn);
 
 const astravel = require('astravel');
-const escodegen = require('escodegen');
+Object.assign(astravel.defaultTraveler, {
+  FieldDefinition(node, state) {
+    this.go(node.key, state);
+    this.go(node.value, state);
+  },
+  ClassProperty(node, state) {
+    this.go(node.key, state);
+    this.go(node.value, state);
+  }
+});
+
+// const escodegen = require('escodegen');
 
 module.exports = function (opts = {}) {
   return async function (ctx, next) {
@@ -34,8 +45,9 @@ module.exports = function (opts = {}) {
           es7: true
         }
       }, opts));
+
       astravel.attachComments(ast, comments);
-      escodegen.attachComments(ast, comments, tokens);
+      // escodegen.attachComments(ast, comments, tokens);
       ctx.input.ast = ast;
     } catch (e) {
       console.log('path is ' + ctx.input.path);
@@ -43,4 +55,4 @@ module.exports = function (opts = {}) {
     }
     next();
   };
-}
+};

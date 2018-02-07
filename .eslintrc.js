@@ -447,7 +447,7 @@ module.exports = {
     // 要求箭头函数体使用大括号
     "arrow-body-style": 2,
     // 要求箭头函数的参数使用圆括号
-    "arrow-parens": 2,
+    "arrow-parens": [2, 'as-needed'],
     "arrow-spacing":[2,{ "before": true, "after": true }],
     // 强制在子类构造函数中用super()调用父类构造函数，TypeScrip的编译器也会提示
     "constructor-super": 0,

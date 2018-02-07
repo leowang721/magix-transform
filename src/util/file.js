@@ -19,7 +19,7 @@ module.exports = class File {
   write() {
     fs.writeFileSync(this.path, this.content, {
       encoding: this.encoding
-    })
+    });
   }
 
   writeTo(path) {
@@ -27,4 +27,4 @@ module.exports = class File {
       encoding: this.encoding
     });
   }
-}
+};
