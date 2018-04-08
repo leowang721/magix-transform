@@ -7,7 +7,6 @@
 const fs = require('fs');
 const path = require('path');
 const minimatch = require('minimatch');
-const Promise = require('k-core/Promise');
 const readdir = require('fs-readdir-recursive');
 const File = require('./file');
 
@@ -31,4 +30,4 @@ module.exports = function getFiles(target, pattern) {
     file.read();
     return file;
   });
-}
+};

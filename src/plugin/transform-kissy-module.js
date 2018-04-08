@@ -5,10 +5,15 @@
  */
 
 const _ = require('lodash');
-const typelog = require('typelog');
 
 let toProcessModule = null;
 
+/**
+ * 是否是 KISSY.add 语法
+ *
+ * @param {Node} statement 节点
+ * @return {boolean} 是否
+ */
 function isKissyAdd(statement) {
   if (statement.type === 'ExpressionStatement' && statement.expression.type === 'CallExpression') {
     const callee = statement.expression.callee;
@@ -22,6 +27,11 @@ function isKissyAdd(statement) {
   }
 }
 
+/**
+ * 处理 KISSY.add 语法
+ *
+ * @param {Node} statement 节点
+ */
 function processKissAdd(statement) {
   if (isKissyAdd(statement)) {
     const args = statement.expression.arguments;
@@ -43,6 +53,7 @@ function processKissAdd(statement) {
 }
 
 module.exports = {
+  name: 'transform-kissy-module',
   pre() {
     toProcessModule = null;
   },

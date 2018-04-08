@@ -7,7 +7,9 @@
 const workflow = require('./workflow/transform');
 
 workflow.process({
-  src: '/Users/leowang/work/magix-transform/test/d.es',
-  pattern: '*.+(js|es)',
+  src: '/Users/leowang/work/magix-transform/test/t.js',
+  pattern: '*.+(js)',
   dist: '/Users/leowang/work/magix-transform/test1'
+}).catch(e => {
+  console.error(e);
 });

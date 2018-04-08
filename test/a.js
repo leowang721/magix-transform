@@ -1,12 +1,16 @@
 KISSY.add('app/common/views/default', function (S, Node, View, VOM, Mu, Tryout, MM, Guider, NewGuider, Stage, Storage, Dialog, Alert) {
   var FirstUserGuider = '_alibaba_app_bp_fug_20130807';
-  var Statistics = Magix.local('Statistics');
+  var Statistics = window.Magix.local('Statistics');
   var $ = Node.all;
 
   return View.extend({
     init: function () {
       var me = this;
       // hack
+      window.Magix.isArray(me);
+      Magix.isFunction(me);
+      var sss = Magix.isObject;
+      var vdd = window.Magix.isString;
       me.fixLowerIE();
       me.showTdCode = me.location.pathname === '/home';
       me.showCalendar = me.location.pathname === '/home';

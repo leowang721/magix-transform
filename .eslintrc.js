@@ -117,7 +117,7 @@ module.exports = {
     //    参数： allowKeywords：true 使用保留字做属性名时，只能使用.方式取属性
     //                          false 使用保留字做属性名时, 只能使用[]方式取属性 e.g [2, {"allowKeywords": false}]
     //           allowPattern:  当属性名匹配提供的正则表达式时，允许使用[]方式取值,否则只能用.号取值 e.g [2, {"allowPattern": "^[a-z]+(_[a-z]+)+$"}]
-    "dot-notation": [2, { "allowKeywords": false }],
+    "dot-notation": [2, { "allowKeywords": true }],
     // 使用 === 替代 == allow-null允许null和undefined==
     "eqeqeq": [2, "allow-null"],
     // 要求 for-in 循环中有一个 if 语句
@@ -312,7 +312,7 @@ module.exports = {
     "func-names": 0,
     // 文件末尾强制换行
     "eol-last": 2,
-    "indent": [2, 2, { "SwitchCase": 2 }],
+    "indent": [2, 2, { "SwitchCase": 1}],
     // 强制在对象字面量的属性中键和值之间使用一致的间距
     "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
     // 强制使用一致的换行风格
@@ -407,7 +407,7 @@ module.exports = {
     // 要求或禁止在可能的情况下要求使用简化的赋值操作符
     "operator-assignment": 0,
     // 强制操作符使用一致的换行符
-    "operator-linebreak": [2, "after", { "overrides": { "?": "before", ":": "before" } }],
+    "operator-linebreak": [2, "before", { "overrides": { "?": "before", ":": "before" } }],
     // 要求或禁止块内填充
     "padded-blocks": 0,
     // 要求对象字面量属性名称用引号括起来

@@ -4,6 +4,8 @@
  * @author Leo Wang(leowang721@gmail.com)
  */
 
+const typelog = require('typelog');
+const moment = require('moment');
 const acorn = require('acorn-stage3');
 const injectAcornObjectRestSpread = require('acorn-object-rest-spread/inject');
 const injectAcornEs7 = require('acorn-es7');
@@ -30,6 +32,7 @@ module.exports = function (opts = {}) {
   return async function (ctx, next) {
     const comments = [];
     const tokens = [];
+    typelog.info(`[${moment().format('YYYY/MM/DD hh:mm:ss')}] CodeParse`);
     try {
       const ast = acorn.parse(ctx.input.content, Object.assign({
         ecmaVersion: 9,
@@ -50,7 +53,6 @@ module.exports = function (opts = {}) {
       // escodegen.attachComments(ast, comments, tokens);
       ctx.input.ast = ast;
     } catch (e) {
-      console.log('path is ' + ctx.input.path);
       console.error(e);
     }
     next();
